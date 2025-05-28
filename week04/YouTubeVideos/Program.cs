@@ -2,6 +2,11 @@ using System;
 
 class Program
 {
+    // i added functions so each new video will create a specifice csv file based on its video name
+    // and then all of the MakeComment are writing to that csv file to then display on the end.
+    // i know i didnt need to go the extra mile for points but its better for practice
+    // and to help me understand how to code
+
     static void Main(string[] args)
     {
         Console.WriteLine("Hello World! This is the YouTubeVideos Project.");
@@ -23,12 +28,12 @@ class Program
         video03.MakeComment("Scrach", "Why dose mine nott worrrrkkkk!!!");
         video03.MakeComment("U_U", "This is way harder than it looks.");
 
-        
+
         video01.DisplayVideoComments();
         video02.DisplayVideoComments();
         video03.DisplayVideoComments();
-        
+
         Console.WriteLine("End of program");
-   
+
     }
 }
