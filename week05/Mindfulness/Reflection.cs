@@ -2,8 +2,8 @@
 public class Reflection : Mindfulness
 {
     // creat variables that represent reflecting
-    public Reflection(string name, string description) : base(name, description)
+    public Reflection(string name, string description, int length) : base(name, description, length)
     {
-
+        
     }
 }
