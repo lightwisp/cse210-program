@@ -1,7 +1,7 @@
 
 public class Mindfulness
 {
-    protected int _activityLength;
+    private int _activityLength;
     private string _activityName;
     private string _activityDescription;
 
@@ -15,55 +15,28 @@ public class Mindfulness
 
     public void ActivityMessage()
     {
-        PrintSlow(_activityDescription);
+        Console.Clear();
+        Menus.PrintSlow(_activityDescription);
     }
     public void PositiveEndMessage()
     {
-        PrintSlow("You have done well. Good Job.");
+        Menus.PrintSlow("You have done well. Good Job.");
+        Thread.Sleep(1500);
+        Console.Clear();
     }
-
-    public void PrintSlow(string text, int delay = 20)
+    public void ReadyMessage()
     {
-        foreach (char c in text)
-        {
-            Console.Write(c);
-            Thread.Sleep(delay);
-        }
+        Menus.PrintSlow("Ready...", 300);
+
+        Menus.PrintSlow("Begin...");
+        Thread.Sleep(500);
+        Console.Clear();
     }
-    public void WaitingAnimation(int length = 5)
+    protected int GetLoop(int numberOfSeconds)
     {
-        DateTime start = DateTime.Now;
-        DateTime end = start.AddSeconds(length);
-
-        // this is my text animations while the user is waiting.
-        List<string> _animations = new List<string>();
-        _animations.Add("_________");
-        _animations.Add("-________");
-        _animations.Add("^-_______");
-        _animations.Add("-^-______");
-        _animations.Add("_-^-_____");
-        _animations.Add("__-^-____");
-        _animations.Add("___-^-___");
-        _animations.Add("____-^-__");
-        _animations.Add("_____-^-_");
-        _animations.Add("______-^-");
-        _animations.Add("_______-^");
-        _animations.Add("________-");
-        _animations.Add("_________");
-
-        int i = 0;
-        while (DateTime.Now < end)
-        {
-            string l = _animations[i];
-            Console.Write("\r" + l);
-            Thread.Sleep(110);
-
-            i++;
-            if (i >= _animations.Count)
-            {
-                i = 0;
-            }
-        }
-
+        // if length of 60, there is 6 loops of breath in and 6 breath out
+        // divided by 5 for 5 second in and out
+        int maxLoop = _activityLength / numberOfSeconds;
+        return maxLoop;
     }
 }

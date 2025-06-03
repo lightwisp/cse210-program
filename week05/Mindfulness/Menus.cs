@@ -5,8 +5,7 @@ public class Menus()
     // creat a menu system to navagate between 3 options
     // breathing, reflection, and lisening activitys
     // these are all children on mindfullness
-    bool on = true;
-
+    private bool on = true;
     public void MenuRun()
     {
         string activityName;
@@ -14,24 +13,34 @@ public class Menus()
         while (on)
         {
             int userAnswer = MainMenu();
-
+            
             switch (userAnswer)
             {
+                
                 // do breathing activity
                 case 1:
                     activityName = "Breathing";
-                    description = @"This activity will help you relax by walking you " +
+                    description = "This activity will help you relax by walking you " +
                                     "through breathing in and out slowly." +
                                     "\n\nClear your mind and focus on your breathing.\n";
-                    int length = GetActivityDuration(activityName);
                     Console.Clear();
-                    Breathing breathing = new Breathing(activityName, description, length);
+                    Breathing breathing = new Breathing(activityName, description, GetActivityDuration(activityName));
                     breathing.ActivityMessage();
                     breathing.DisplayBreathing();
                     breathing.PositiveEndMessage();
+
                     break;
                 // do Reflection activity
                 case 2:
+                    activityName = "Reflection";
+                    description = "This activity will help you reflect on times in your " +
+                                  "life when you have shown strength and resilience." +
+                                  "\nThis will help you recognize the power you have and " +
+                                  "how you can use it in other aspects of your life.";
+                    Reflection reflection = new Reflection(activityName, description, GetActivityDuration(activityName));
+                    reflection.ActivityMessage();
+                    reflection.DisplayQuestions();
+                    reflection.PositiveEndMessage();
                     break;
                 // do Listing activity
                 case 3:
@@ -76,15 +85,49 @@ public class Menus()
             return 0;
         }
     }
-    private void PrintSlow(string text, int delay = 20)
+    public static void PrintSlow(string text, int delay = 20)
     {
         foreach (char c in text)
         {
             Console.Write(c);
             Thread.Sleep(delay);
         }
+        Console.WriteLine();
     }
+    public static void WaitingAnimation(int length = 5)
+    {
+        DateTime start = DateTime.Now;
+        DateTime end = start.AddSeconds(length);
 
+        // this is my text animations while the user is waiting.
+        List<string> _animations = new List<string>();
+        _animations.Add("_________");
+        _animations.Add("-________");
+        _animations.Add("^-_______");
+        _animations.Add("-^-______");
+        _animations.Add("_-^-_____");
+        _animations.Add("__-^-____");
+        _animations.Add("___-^-___");
+        _animations.Add("____-^-__");
+        _animations.Add("_____-^-_");
+        _animations.Add("______-^-");
+        _animations.Add("_______-^");
+        _animations.Add("________-");
+        _animations.Add("_________");
 
-    
+        int i = 0;
+        while (DateTime.Now < end)
+        {
+            string l = _animations[i];
+            Console.Write("\r" + l);
+            Thread.Sleep(100);
+
+            i++;
+            if (i >= _animations.Count)
+            {
+                i = 0;
+            }
+        }
+        Console.WriteLine();
+    }
 }
