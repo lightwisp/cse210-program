@@ -28,7 +28,6 @@ public class Menus()
                     breathing.ActivityMessage();
                     breathing.DisplayBreathing();
                     breathing.PositiveEndMessage();
-
                     break;
                 // do Reflection activity
                 case 2:
@@ -37,6 +36,7 @@ public class Menus()
                                   "life when you have shown strength and resilience." +
                                   "\nThis will help you recognize the power you have and " +
                                   "how you can use it in other aspects of your life.";
+                    Console.Clear();
                     Reflection reflection = new Reflection(activityName, description, GetActivityDuration(activityName));
                     reflection.ActivityMessage();
                     reflection.DisplayQuestions();
@@ -44,6 +44,14 @@ public class Menus()
                     break;
                 // do Listing activity
                 case 3:
+                    activityName = "Listing";
+                    description = "This activity will help you reflect on the good things in your life by having you" +
+                    " list as many things as you can in a certain area.";
+                    Console.Clear();
+                    Listing listing = new Listing(activityName, description, GetActivityDuration(activityName));
+                    listing.ActivityMessage();
+                    
+                    listing.PositiveEndMessage();
                     break;
                 // quit the program    
                 case 4:
