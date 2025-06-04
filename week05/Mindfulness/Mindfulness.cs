@@ -39,4 +39,24 @@ public class Mindfulness
         int maxLoop = _activityLength / numberOfSeconds;
         return maxLoop;
     }
+    public int GetActivityDuration()
+    {
+        return _activityLength;
+    }
+    private string GetPromt(List<string> strings)
+    {
+        int numberPicker = GetRandArrayNumber(strings);
+        string promt = strings[numberPicker];
+        strings.RemoveAt(numberPicker);
+        return promt;
+    }
+    private int GetRandArrayNumber(List<string> strings)
+    {
+        Random random = new Random();
+        return random.Next(strings.Count());
+    }
+    public void DisplayString(List<string> strings)
+    {
+        Menus.PrintSlow(GetPromt(strings));
+    }
 }

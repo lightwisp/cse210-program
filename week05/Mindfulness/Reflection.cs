@@ -25,22 +25,6 @@ public class Reflection : Mindfulness
             "How can you keep this experience in mind in the future?" });
     }
 
-    private string GetPromt(List<string> strings)
-    {
-        int numberPicker = GetRandArrayNumber(strings);
-        string promt = strings[numberPicker];
-        strings.RemoveAt(numberPicker);
-        return promt;
-    }
-    private int GetRandArrayNumber(List<string> strings)
-    {
-        Random random = new Random();
-        return random.Next(strings.Count());
-    }
-    public void DisplayString(List<string> strings)
-    {
-        Menus.PrintSlow(GetPromt(strings));
-    }
     public void DisplayQuestions()
     {
         ReadyMessage();

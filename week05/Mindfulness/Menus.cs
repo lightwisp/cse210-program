@@ -50,7 +50,7 @@ public class Menus()
                     Console.Clear();
                     Listing listing = new Listing(activityName, description, GetActivityDuration(activityName));
                     listing.ActivityMessage();
-                    
+                    listing.DisplayListing();
                     listing.PositiveEndMessage();
                     break;
                 // quit the program    
