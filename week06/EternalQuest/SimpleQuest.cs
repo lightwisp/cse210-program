@@ -1,13 +1,24 @@
 
 public class SimpleQuest : Quest
 {
-
-    public SimpleQuest(string name, int points, int numToCompleat) : base(name, points, numToCompleat)
+    private bool _isComplete;
+    public SimpleQuest(string name, int points, string description) : base(name, points, description)
     {
-
+        _isComplete = false;
     }
-    public override string DisplayQuest()
+   
+    public override void RecordEvent()
     {
-        return null;
+        throw new NotImplementedException();
+    }
+
+    public override bool IsComplete()
+    {
+        throw new NotImplementedException();
+    }
+
+    public override string GetStringRepresentation()
+    {
+        throw new NotImplementedException();
     }
 }

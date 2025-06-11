@@ -4,14 +4,20 @@ public abstract class Quest
 {
     private string _name;
     private int _points;
-    private int _bonusPoints;
-    
-    protected Quest(string name, int points, int bonusPoints = 0)
+    private string _description;
+
+    protected Quest(string name, int points, string description)
     {
         _name = name;
         _points = points;
-        _bonusPoints = bonusPoints;
+        _description = description;
     }
 
-    public abstract string DisplayQuest();
+    public abstract void RecordEvent();
+    public abstract bool IsComplete();
+    public abstract string GetStringRepresentation();
+    public string GetDetailsString()
+    {
+        return null;
+    }
 }

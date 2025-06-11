@@ -1,12 +1,23 @@
 
 public class EternalQuest : Quest
 {
-    public EternalQuest(string name, int points) : base(name, points)
+    public EternalQuest(string name, int points, string description) : base(name, points, description)
     {
 
     }
-    public override string DisplayQuest()
+
+    public override void RecordEvent()
     {
-        return null;
+        throw new NotImplementedException();
+    }
+
+    public override bool IsComplete()
+    {
+        throw new NotImplementedException();
+    }
+
+    public override string GetStringRepresentation()
+    {
+        throw new NotImplementedException();
     }
 }

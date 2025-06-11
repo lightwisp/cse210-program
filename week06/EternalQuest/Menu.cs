@@ -13,6 +13,7 @@ public class Menu()
     public static Quest GoalMenu()
     {
         //menu for creating a new goal that lets user decide what goal they want
+        return null;
     }
     public static void UserMenu()
     {
