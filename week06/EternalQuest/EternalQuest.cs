@@ -1,7 +1,6 @@
 
 public class EternalQuest : Quest
 {
-    private int _amountCompleted;
     public EternalQuest(string name, string description, int points) : base(name, points, description)
     {
 
