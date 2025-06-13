@@ -1,0 +1,8 @@
+3250*30*3
+SimpleQuest*Give a talk*Speak in Sacrament*100*True
+SimpleQuest*Make pancakes*Learn to Make pancakes*100*True
+SimpleQuest*Find Food*find more food to eat*20*True
+EternalQuest*running*Run 1 mile every day*20
+MultiQuest*attened the temple*go to the temple 1 a month*100*10*4*2000
+MultiQuest*Eat 3 meals a Day*Make sure to meal prep and eat*10*30*1*10000
+MultiQuest*betertest*testing testing*2020*2*2*2000

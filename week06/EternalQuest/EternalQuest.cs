@@ -1,23 +1,30 @@
 
 public class EternalQuest : Quest
 {
-    public EternalQuest(string name, int points, string description) : base(name, points, description)
+    private int _amountCompleted;
+    public EternalQuest(string name, string description, int points) : base(name, points, description)
     {
 
     }
 
     public override void RecordEvent()
     {
-        throw new NotImplementedException();
+        UserProfile.AddPoints(_points);
     }
 
     public override bool IsComplete()
     {
-        throw new NotImplementedException();
+        return false;
     }
 
     public override string GetStringRepresentation()
     {
-        throw new NotImplementedException();
+        string goalData = $"EternalQuest*{_name}*{_description}*{_points}";
+        return goalData;
+    }
+    public override string PrintQuestDetails()
+    {
+        string goalData = GetDetailsString();
+        return goalData;
     }
 }

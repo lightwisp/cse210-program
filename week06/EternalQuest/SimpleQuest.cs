@@ -2,23 +2,30 @@
 public class SimpleQuest : Quest
 {
     private bool _isComplete;
-    public SimpleQuest(string name, int points, string description) : base(name, points, description)
+    public SimpleQuest(string name, string description, int points, bool compleated) : base(name, points, description)
     {
-        _isComplete = false;
-    }
-   
-    public override void RecordEvent()
-    {
-        throw new NotImplementedException();
+        _isComplete = compleated;
     }
 
+    public override void RecordEvent()
+    {
+        _isComplete = true;
+        UserProfile.AddPoints(_points);
+    }
+    
     public override bool IsComplete()
     {
-        throw new NotImplementedException();
+        return _isComplete;
     }
 
     public override string GetStringRepresentation()
     {
-        throw new NotImplementedException();
+        string goalData = $"SimpleQuest*{_name}*{_description}*{_points}*{IsComplete()}";
+        return goalData;
+    }
+    public override string PrintQuestDetails()
+    {
+        string goalData = GetDetailsString();
+        return goalData;
     }
 }

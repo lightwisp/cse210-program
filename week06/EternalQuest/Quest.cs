@@ -2,9 +2,9 @@
 
 public abstract class Quest
 {
-    private string _name;
-    private int _points;
-    private string _description;
+    protected string _name;
+    protected int _points;
+    protected string _description;
 
     protected Quest(string name, int points, string description)
     {
@@ -16,8 +16,21 @@ public abstract class Quest
     public abstract void RecordEvent();
     public abstract bool IsComplete();
     public abstract string GetStringRepresentation();
+    public abstract string PrintQuestDetails();
     public string GetDetailsString()
     {
-        return null;
+        return $"[{XCompleate()}] {_name} ({_description})";
     }
+    public string XCompleate()
+    {
+        if (IsComplete() == true)
+        {
+            return "X";
+        }
+        else
+        {
+            return " ";
+        }
+    }
+    
 }

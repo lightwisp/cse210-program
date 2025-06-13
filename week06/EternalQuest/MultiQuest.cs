@@ -4,7 +4,7 @@ public class MultiQuest : Quest
     private int _target;
     private int _bonusPoints;
     private int _amountCompleted;
-    public MultiQuest(int target, int bonusPoints, int amountCompleted, string name, int points, string description) : base(name, points, description)
+    public MultiQuest(string name, string description, int points, int target, int amountCompleted, int bonusPoints) : base(name, points, description)
     {
         _target = target;
         _bonusPoints = bonusPoints;
@@ -13,16 +13,34 @@ public class MultiQuest : Quest
 
     public override void RecordEvent()
     {
-        throw new NotImplementedException();
+        _amountCompleted += 1;
+        if (IsComplete())
+        {
+            _points = _points + _bonusPoints;
+        }
+        UserProfile.AddPoints(_points);
     }
 
     public override bool IsComplete()
     {
-        throw new NotImplementedException();
+        if (_amountCompleted == _target)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     public override string GetStringRepresentation()
     {
-        throw new NotImplementedException();
+        string goalData = $"MultiQuest*{_name}*{_description}*{_points}*{_target}*{_amountCompleted}*{_bonusPoints}";
+        return goalData;
+    }
+    public override string PrintQuestDetails()
+    {
+        string goalData =$"[{XCompleate()}] GetDetailsString() --Curently Completed: {_amountCompleted}/{_target}";
+        return goalData;
     }
 }
