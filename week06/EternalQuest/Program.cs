@@ -1,5 +1,10 @@
 using System;
 
+// i made the exit a save and exit so the user dosent have to think about saving
+// i also made the program auto load the users data.
+// i made a user profile that iwll shocase completed quests and there profile banner
+// added a delet quest option 
+// added a show curent goals so you dont need to add to see what you have
 class Program
 {
     static void Main(string[] args)
@@ -23,7 +28,7 @@ class Program
                 case 1:
                     Quest quest = Menu.GoalMenu();
                     goalData.Add(quest);
-                    
+
                     break;
                 //Show curent goals
                 case 2:
