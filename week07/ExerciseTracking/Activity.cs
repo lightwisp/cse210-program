@@ -1,6 +1,6 @@
 public abstract class Activity
 {
-    protected DateTime today = DateTime.Today;
+    protected string today = DateTime.Now.ToString("yyyy-MM-dd");
     protected double _time;
     protected double _distance;
     
